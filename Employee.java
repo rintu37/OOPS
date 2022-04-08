@@ -1,26 +1,67 @@
-class Employee
+import java.util.Scanner;
+public class Employee
 {
-    int emp_id;
+    int eid;
+    String ename;
     float salary;
-    String empname;
-    float t_salary;
-    Employee(int a,String b,float c)
+    public void GetInput()
     {
-        emp_id=a;
-        empname=b;
-        salary=c;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the employee id");
+        eid=sc.nextInt();
+        System.out.println("Enter the name");
+        ename=sc.next();
+        System.out.println("Enter salary");
+        salary=sc.nextFloat();
     }
-    public void Totalsalary()
+    public void Display()
     {
-        t_salary=salary+salary*20/100;
-        System.out.println("total salary="+t_salary);
+        System.out.println("Employee id:"+eid);
+        System.out.println("Employee name:"+ename);
+        System.out.println("Salary:"+salary);
     }
     public static void main(String args[])
     {
-        Employee e1=new Employee(100, "abc", 5000);
-        e1.Totalsalary();
-        Employee e2=new Employee(101,"bcd",7000);
-        e2.Totalsalary();
+        int i,n,s,f=0;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no of employees");
+        n=sc.nextInt();
+        Employee e[]=new Employee[n];
+        for(i=0;i<n;i++)
+        {
+            e[i]=new Employee();
+            e[i].GetInput();
+        }
+        System.out.println("Employee details are");
+        for(i=0;i<n;i++)
+        {
+            e[i].Display();
+        }
+        System.out.println("Enter the employee id to be search");
+        s=sc.nextInt();
+        for(i=0;i<n;i++)
+        {
+            if(s==e[i].eid)
+            {
+                f=1;
+                break;
+            }
+            
+                
+                
+        }
+        if(f==1)
+        {
+            System.out.println("Employee details:");
+            e[i].Display();
+        }
+        else
+        {
+            System.out.println("Details not found");
+        }
+                
+                
     }
-
 }
+
+
